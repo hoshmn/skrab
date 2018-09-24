@@ -9,6 +9,7 @@ export default class BoardLocation extends React.Component {
   render() {
     const { boardLocation } = this.props;
     const backgroundColor = backgroundColorMap[boardLocation.multiplier];
+    
     const { tile } = boardLocation;
     const containedTile = tile ? <Tile tile={tile} /> : <Text />;
 
