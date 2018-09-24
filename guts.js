@@ -13,11 +13,11 @@ const buildBoard = () => {
   return board;
 };
 
-const BoardLocation = function(row, col, occupiedBy=null) {
+const BoardLocation = function(row, col, tile=null) {
   this.row = row;
   this.col = col;
   this.multiplier = getMultiplier({ row, col });
-  this.occupiedBy = occupiedBy;
+  this.tile = tile;
 
   return this;
 }

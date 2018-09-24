@@ -6,10 +6,11 @@ export default class Tile extends React.Component {
     super(props);
   }
   render() {
-    console.log('row:', this.props.tile);
+    const { tile } = this.props;
+
     return (
       <View style={styles.container}>
-        <Text>tile</Text>
+        <Text>{tile.letter}</Text>
       </View>
     );
   }
@@ -20,10 +21,8 @@ const styles = StyleSheet.create({
     flex: 1,
     display: 'flex',
     borderWidth: 1,
-    // width: 8,
     height: 35,
     borderColor: 'brown',
-    backgroundColor: '#adf',
     alignItems: 'center',
     justifyContent: 'center',
   },

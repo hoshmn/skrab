@@ -7,12 +7,12 @@ export default class Board extends React.Component {
   constructor (props) {
     super(props);
     const board = buildBoard();
-    this.state = { board };
+    this.state = { board, rack1: 'abcdefg', rack2: 'hijklmn' };
   }
   render() {
-    // console.log(this.state.board);
     const Rows = this.state.board.map(r => 
-      <Row row={r} key={r.col+'-'+r.row} />);
+      <Row row={r} key={r[0].row} />);
+
     return (
       <View style={styles.container}>
         <Text>Open up App.js to start working on your app!</Text>
@@ -24,8 +24,6 @@ export default class Board extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // flexDirection: 'column',
     height: 538,
     backgroundColor: '#fff',
     alignItems: 'center',

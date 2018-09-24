@@ -1,18 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Tile from './Tile.js';
+import BoardLocation from './BoardLocation.js';
 
 export default class Row extends React.Component {
   constructor (props) {
     super(props);
   }
   render() {
-    // console.log('row:', this.props.row);
-    const Tiles = this.props.row.map(t => 
-      <Tile tile={t} key={t.col} />);
+    const BoardLocations = this.props.row.map(t => 
+      <BoardLocation boardLocation={t} key={t.col} />);
+
     return (
       <View style={styles.container}>
-        {Tiles}
+        {BoardLocations}
       </View>
     );
   }
