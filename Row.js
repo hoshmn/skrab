@@ -1,15 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Board from './Board.js'
+import Tile from './Tile.js';
 
-export default class App extends React.Component {
+export default class Row extends React.Component {
   constructor (props) {
     super(props);
   }
   render() {
+    // console.log('row:', this.props.row);
+    const Tiles = this.props.row.map(t => 
+      <Tile tile={t} key={t.col} />);
     return (
       <View style={styles.container}>
-        <Board />
+        {Tiles}
       </View>
     );
   }
@@ -18,6 +21,8 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    display: 'flex',
+    flexDirection: 'row',
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
