@@ -1,18 +1,32 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Tile from './Tile.js';
+import { Alert, Button, StyleSheet, Text, View } from 'react-native';
+import RackTile from './RackTile.js';
 
 export default class Rack extends React.Component {
   constructor (props) {
     super(props);
+
+    this.state = { selectedIndex: null };
+    this.handlePress = this.handlePress.bind(this);
   }
+
+  handlePress(i) {
+    this.setState({ selectedIndex: i });
+  }
+
   render() {
-    const Tiles = this.props.rack.map((t, i) => 
-      <Tile tile={t} key={i} />);
+    const RackTiles = this.props.rack.map((t, i) => 
+      <RackTile
+        pressHandler={this.handlePress}
+        selected={this.state.selectedIndex === i}
+        tile={t}
+        index={i}
+        key={i}
+      />);
 
     return (
       <View style={styles.container}>
-        {Tiles}
+        {RackTiles}
       </View>
     );
   }
