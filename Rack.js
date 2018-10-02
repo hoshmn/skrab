@@ -11,6 +11,7 @@ export default class Rack extends React.Component {
   }
 
   handlePress(i) {
+    console.log('handlePress', i);
     this.setState({ selectedIndex: i });
   }
 

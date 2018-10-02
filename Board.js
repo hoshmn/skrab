@@ -1,17 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Row from './Row.js';
-import buildBoard from './guts.js';
 
 export default class Board extends React.Component {
   constructor (props) {
     super(props);
-    const board = buildBoard();
-    this.state = { board };
   }
 
   render() {
-    const Rows = this.state.board.map(r => 
+    const Rows = this.props.board.map(r => 
       <Row row={r} key={r[0].row} />);
 
     return (
