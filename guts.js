@@ -2,9 +2,9 @@ import lodash from 'lodash';
 
 const buildBoard = () => {
   const board = [];
-  for (let row = 1; row <= 15; row++) {
+  for (let row = 0; row <= 14; row++) {
     let nextRow = [];
-    for (let col = 1; col <= 15; col++) {
+    for (let col = 0; col <= 14; col++) {
       nextRow.push(new BoardLocation(row, col));
     }
     board.push(nextRow);

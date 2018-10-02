@@ -8,7 +8,9 @@ export default class Row extends React.Component {
   }
   render() {
     const BoardLocations = this.props.row.map(t => 
-      <BoardLocation boardLocation={t} key={t.col} />);
+      <BoardLocation boardLocation={t} key={t.col}
+        positionSelectHandler={this.props.positionSelectHandler}
+      />);
 
     return (
       <View style={styles.container}>

@@ -10,7 +10,7 @@ export default class Tile extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text>{tile.letter}</Text>
+        <Text>{tile ? tile.letter : ''}</Text>
       </View>
     );
   }

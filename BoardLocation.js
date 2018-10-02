@@ -1,21 +1,28 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Tile from './Tile.js';
 
 export default class BoardLocation extends React.Component {
   constructor (props) {
     super(props);
+
+    this.positionSelectHandler = this.positionSelectHandler.bind(this);
   }
+
+  positionSelectHandler() {
+    const { row, col } = this.props.boardLocation;
+    this.props.positionSelectHandler({ row, col });
+  }
+
   render() {
     const { boardLocation } = this.props;
     const backgroundColor = backgroundColorMap[boardLocation.multiplier];
-    
-    const { tile } = boardLocation;
-    const containedTile = tile ? <Tile tile={tile} /> : <Text />;
 
     return (
       <View style={[styles.container, { backgroundColor }]}>
-        {containedTile}
+        <TouchableOpacity onPress={this.positionSelectHandler}>
+          <Tile tile={boardLocation.tile} />
+        </TouchableOpacity>
       </View>
     );
   }

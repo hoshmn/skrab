@@ -9,7 +9,9 @@ export default class Board extends React.Component {
 
   render() {
     const Rows = this.props.board.map(r => 
-      <Row row={r} key={r[0].row} />);
+      <Row row={r} key={r[0].row}
+        positionSelectHandler={this.props.positionSelectHandler}
+      />);
 
     return (
       <View style={styles.board}>
